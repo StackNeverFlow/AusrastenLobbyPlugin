@@ -32,7 +32,6 @@ public class PlayerInventoryClickEvent implements Listener {
             itemMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
             itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
             itemMeta.setDisplayName("§8● §a§lSpawn");
-            inv
 
             if (invclick.getClickedInventory().contains(Material.MAGMA_CREAM)) {
                 player.sendMessage(Config.PREFIX + "Du wurdest zum Spawn teleportiert");
