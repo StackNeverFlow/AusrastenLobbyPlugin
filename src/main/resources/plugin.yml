@@ -1,0 +1,9 @@
+name: Lobby
+version: 1.0.1
+author: AusrastenDevTeam
+main: com.Ausrasten.plugin.Main
+commands:
+  gm:
+  fly:
+  vanish:
+  dup:
