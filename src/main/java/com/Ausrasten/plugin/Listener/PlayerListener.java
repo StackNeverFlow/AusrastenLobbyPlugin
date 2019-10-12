@@ -17,6 +17,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.Inventory;
@@ -47,17 +48,7 @@ public class PlayerListener implements Listener {
         player.setCanPickupItems(false);
         player.setMaxHealth(6);
 
-        Inventory inv = player.getInventory();
-
-        ItemStack itemStack = new ItemStack(Material.COMPASS);
-        ItemMeta itemMeta = itemStack.getItemMeta();
-
-        itemMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
-        itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        itemMeta.setDisplayName("§a§lNavigator");
-        itemStack.addUnsafeEnchantment(Enchantment.DURABILITY, 1);
-
-        inv.addItem(itemStack);
+        player.getInventory().clear();
     }
 
 
@@ -76,7 +67,13 @@ public class PlayerListener implements Listener {
 
     @EventHandler
     public void onBlockBreak(BlockBreakEvent event) {
+        event.setCancelled(true);
+    }
 
+    @EventHandler
+    public void onFood(FoodLevelChangeEvent event) {
+        event.setFoodLevel(20);
+        event.setCancelled(true);
     }
 
     private void setScoreboard(final Player player) {

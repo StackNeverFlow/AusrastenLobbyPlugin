@@ -11,7 +11,6 @@ import com.Ausrasten.plugin.Commands.GameModeCMD;
 import com.Ausrasten.plugin.Commands.VanishCMD;
 import com.Ausrasten.plugin.Listener.JumpPadListener;
 import com.Ausrasten.plugin.Listener.PlayerChatListener;
-import com.Ausrasten.plugin.Listener.PlayerInventoryClickEvent;
 import com.Ausrasten.plugin.Listener.PlayerListener;
 import de.dytanic.cloudnet.bridge.CloudServer;
 import org.bukkit.Bukkit;
@@ -32,7 +31,6 @@ public class Main extends JavaPlugin {
 
         Bukkit.getPluginManager().registerEvents(new PlayerListener(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerChatListener(), this);
-        Bukkit.getPluginManager().registerEvents(new PlayerInventoryClickEvent(), this);
         Bukkit.getPluginManager().registerEvents(new JumpPadListener(), this);
 
         getCommand("gm").setExecutor(new GameModeCMD());
