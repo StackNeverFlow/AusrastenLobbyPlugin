@@ -16,6 +16,8 @@ import static com.Ausrasten.plugin.Utils.Config.NoPerms;
 import static com.Ausrasten.plugin.Utils.Config.PREFIX;
 
 public class FlyCMD implements CommandExecutor {
+
+    //Create a array name list with all players they are in the fly mode
     ArrayList<Player>list = new ArrayList<Player>();
 
     @Override
@@ -24,6 +26,7 @@ public class FlyCMD implements CommandExecutor {
         if (command.getName().equalsIgnoreCase("fly")) {
             Player player = (Player) commandSender;
 
+            //Basic permission check
             if (player.hasPermission("ausrasten.fly")) {
                 if (list.contains(player)) {
                     list.remove(player);
@@ -36,6 +39,8 @@ public class FlyCMD implements CommandExecutor {
                     player.setFlying(true);
                     player.sendMessage(PREFIX + "Du kannst nun fliegen");
                 }
+
+                //if the player dosent have the permission for use '/fly' = 'ausrasten.fly'
             } else { player.sendMessage(NoPerms); }
         }
 
