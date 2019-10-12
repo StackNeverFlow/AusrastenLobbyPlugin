@@ -21,14 +21,6 @@ public class PlayerChatListener implements Listener {
     public void onChat(final AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
 
-        if(event.getPlayer().hasPermission("ausrasten.chat.bypass")) {
-            event.setFormat("§4Leitung §8| §4" + event.getPlayer().getName() + " §8● §7" + event.getMessage().replace("%", "%%"));
-            return;
-        }
-
-        event.setCancelled(true);
-        event.getPlayer().sendMessage(Config.PREFIX + "Du brauchst einen Rang um in der Lobby zu schreiben!");
-
         if (event.getMessage().contains("#tc")) {
             if (player.hasPermission("ausrasten.teamchat.send")) {
                 String msg = event.getMessage();
@@ -43,6 +35,14 @@ public class PlayerChatListener implements Listener {
                 event.setCancelled(true);
             }
         }
+
+        if(event.getPlayer().hasPermission("ausrasten.chat.bypass")) {
+            event.setFormat("§4Leitung §8| §4" + event.getPlayer().getName() + " §8● §7" + event.getMessage().replace("%", "%%"));
+            return;
+        }
+
+        event.setCancelled(true);
+        event.getPlayer().sendMessage(Config.PREFIX + "Du brauchst einen Rang um in der Lobby zu schreiben!");
 
     }
 
