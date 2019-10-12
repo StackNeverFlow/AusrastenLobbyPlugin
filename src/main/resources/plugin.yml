@@ -1,7 +1,8 @@
 name: Lobby
-version: 1.0.1
+version: 1.0.2
 author: AusrastenDevTeam
 main: com.Ausrasten.plugin.Main
+
 commands:
   gm:
   fly:
